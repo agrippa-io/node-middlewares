@@ -6,11 +6,11 @@ const rawBodySaver = (request, result, buffer, encoding) => {
   }
 }
 
-export default (app) => {
+export function attachBodyParser(app, verify = rawBodySaver) {
   app.use(
     bodyParser.json({
       limit: '500kb',
-      verify: rawBodySaver,
+      verify,
     })
   )
 }

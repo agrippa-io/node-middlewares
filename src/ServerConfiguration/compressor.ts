@@ -8,7 +8,7 @@ const shouldCompress = (request, result) => {
   return compression.filter(request, result)
 }
 
-export default (app) => {
+export function attachCompressor(app) {
   app.use(
     compression({
       filter: shouldCompress,

@@ -1,14 +1,17 @@
 import morgan from 'morgan'
 
 morgan.token('remote-addr', (request) => {
-  if (request.headers['x-forwarded-for']) return request.headers['x-forwarded-for'].split(', ')[0]
+  if (request.headers['x-forwarded-for'])
+    return request.headers['x-forwarded-for'].split(', ')[0]
   return request.connection.remoteAddress
 })
 
-export default (app) => {
+const defaultSkip = (request, result) => request.method === 'OPTIONS'
+
+export function attachMorgan(app, skip = defaultSkip) {
   app.use(
     morgan('combined', {
-      skip: (request, result) => request.method === 'OPTIONS',
+      skip,
     })
   )
 }

@@ -4,12 +4,12 @@ import ErrorServer from '@agrippa-io/node-errors/src/ErrorServer'
 import ErrorAPI from '@agrippa-io/node-errors/src/ErrorAPI'
 import { Logger } from '@agrippa-io/node-utils/src'
 
-export default async (
+export async function catchAllErrors(
   error: ErrorAPI,
   request: express.Request,
   response: express.Response,
   next: express.NextFunction
-): Promise<void> => {
+): Promise<void> {
   Logger.error('Uncaught Error', error)
   const ServerError = error ?? new ErrorServer()
 

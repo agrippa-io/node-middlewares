@@ -1,2 +1,2 @@
 import express from 'express';
-export default function (req: express.Request, res: express.Response, next: express.NextFunction): void;
+export declare function requestEscaper(req: express.Request, res: express.Response, next: express.NextFunction): void;

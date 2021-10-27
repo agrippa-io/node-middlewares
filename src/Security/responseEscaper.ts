@@ -2,7 +2,11 @@ import express from 'express'
 import isObject from 'lodash/isObject'
 import xss from 'xss'
 
-export default function (req: express.Request, res: express.Response, next: express.NextFunction) {
+export function responseEscaper(
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
   const oldSend = res.send
 
   res.send = function (data) {

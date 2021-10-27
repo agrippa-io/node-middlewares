@@ -1,11 +1,11 @@
-import attachAppToRequest from './attachAppToRequest'
-import bodyParser from './bodyParser'
-import compressor from './compressor'
-import morgan from './morgan'
+import { attachAppToRequest } from './attachAppToRequest'
+import { attachBodyParser } from './bodyParser'
+import { attachCompressor } from './compressor'
+import { attachMorgan } from './morgan'
 
-export default (app) => {
+export function ServerConfiguration(app) {
   attachAppToRequest(app)
-  morgan(app)
-  bodyParser(app)
-  compressor(app)
+  attachMorgan(app)
+  attachBodyParser(app)
+  attachCompressor(app)
 }

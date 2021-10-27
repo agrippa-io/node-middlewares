@@ -1,16 +1,15 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const attachAppToRequest_1 = __importDefault(require("./attachAppToRequest"));
-const bodyParser_1 = __importDefault(require("./bodyParser"));
-const compressor_1 = __importDefault(require("./compressor"));
-const morgan_1 = __importDefault(require("./morgan"));
-exports.default = (app) => {
-    attachAppToRequest_1.default(app);
-    morgan_1.default(app);
-    bodyParser_1.default(app);
-    compressor_1.default(app);
-};
+exports.ServerConfiguration = void 0;
+const attachAppToRequest_1 = require("./attachAppToRequest");
+const bodyParser_1 = require("./bodyParser");
+const compressor_1 = require("./compressor");
+const morgan_1 = require("./morgan");
+function ServerConfiguration(app) {
+    attachAppToRequest_1.attachAppToRequest(app);
+    morgan_1.attachMorgan(app);
+    bodyParser_1.attachBodyParser(app);
+    compressor_1.attachCompressor(app);
+}
+exports.ServerConfiguration = ServerConfiguration;
 //# sourceMappingURL=index.js.map
