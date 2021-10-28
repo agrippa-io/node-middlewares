@@ -1,8 +1,7 @@
 import express from 'express'
 
-import ErrorServer from '@agrippa-io/node-errors/src/ErrorServer'
-import ErrorAPI from '@agrippa-io/node-errors/src/ErrorAPI'
-import { Logger } from '@agrippa-io/node-utils/src'
+import { ErrorAPI, ErrorServer } from '@agrippa-io/node-errors'
+import { Logger } from '@agrippa-io/node-utils'
 
 export async function catchAllErrors(
   error: ErrorAPI,
