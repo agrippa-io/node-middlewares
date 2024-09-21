@@ -10,7 +10,13 @@ export async function catchAllErrors(
   next: express.NextFunction
 ): Promise<void> {
   Logger.error('Uncaught Error', error)
+
   const ServerError = error ?? new ErrorServer()
 
-  response.status(ServerError.status).send(ServerError).end()
+  Logger.error('ServerError', ServerError)
+
+  response
+    .status(ServerError?.status ?? 500)
+    .send(ServerError)
+    .end()
 }
