@@ -1,1 +1,2 @@
-export declare function ServerConfiguration(app: any): void;
+import { Application } from 'express';
+export declare function ServerConfiguration(app: Application): void;

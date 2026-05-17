@@ -1,12 +1,17 @@
-import isEmpty from 'lodash/isEmpty';
-import xss from 'xss';
-export function requestEscaper(req, res, next) {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.requestEscaper = requestEscaper;
+const isEmpty_1 = __importDefault(require("lodash/isEmpty"));
+const xss_1 = __importDefault(require("xss"));
+function requestEscaper(req, res, next) {
     if (req.is('application/json')) {
-        req.body = JSON.parse(xss(JSON.stringify(req.body)));
+        req.body = JSON.parse((0, xss_1.default)(JSON.stringify(req.body)));
     }
-    if (!isEmpty(req.query)) {
-        req.query = JSON.parse(xss(JSON.stringify(req.query)));
+    if (!(0, isEmpty_1.default)(req.query)) {
+        req.query = JSON.parse((0, xss_1.default)(JSON.stringify(req.query)));
     }
     next();
 }
-//# sourceMappingURL=requestEscaper.js.map

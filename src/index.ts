@@ -1,2 +1,2 @@
-export * from './Security'
-export * from './ServerConfiguration'
+export * from 'src/Security'
+export * from 'src/ServerConfiguration'

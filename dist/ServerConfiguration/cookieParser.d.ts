@@ -1,1 +1,2 @@
-export declare function attachCookieParser(app: any): void;
+import { Application } from 'express';
+export declare function attachCookieParser(app: Application): void;

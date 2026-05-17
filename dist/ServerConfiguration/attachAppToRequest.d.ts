@@ -1,1 +1,2 @@
-export declare function attachAppToRequest(app: any): void;
+import { Application } from 'express';
+export declare function attachAppToRequest(app: Application): void;

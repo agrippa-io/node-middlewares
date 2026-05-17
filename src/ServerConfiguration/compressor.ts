@@ -1,6 +1,7 @@
 import compression from 'compression'
+import { Application } from 'express'
 
-const shouldCompress = (request, result) => {
+const shouldCompress = (request: any, result: any) => {
   if (request.headers['x-no-compression']) {
     return false
   }
@@ -8,7 +9,7 @@ const shouldCompress = (request, result) => {
   return compression.filter(request, result)
 }
 
-export function attachCompressor(app) {
+export function attachCompressor(app: Application) {
   app.use(
     compression({
       filter: shouldCompress,

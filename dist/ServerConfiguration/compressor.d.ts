@@ -1,1 +1,2 @@
-export declare function attachCompressor(app: any): void;
+import { Application } from 'express';
+export declare function attachCompressor(app: Application): void;

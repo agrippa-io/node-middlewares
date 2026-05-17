@@ -1,4 +1,6 @@
 import cookieParser from 'cookie-parser'
-export function attachCookieParser(app) {
+import { Application } from 'express'
+
+export function attachCookieParser(app: Application) {
   app.use(cookieParser())
 }
